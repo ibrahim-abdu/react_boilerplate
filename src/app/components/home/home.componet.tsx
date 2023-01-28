@@ -1,22 +1,21 @@
-import { DIContext } from '../../helpers/dependencies.context';
-import React, { useEffect } from 'react'
-import { useTranslation } from 'react-i18next';
+import { DIContext } from '../../helpers/dependencies.context'
+import React, { useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
-export default function HomeComponet() {
-  const dependencies = React.useContext(DIContext);
-  const { translation } = dependencies;
+export default function HomeComponet (): JSX.Element {
+  const dependencies = React.useContext(DIContext)
+  const { translation } = dependencies
   const { t } = useTranslation()
+  const changeLanguageHandler = useCallback(
+    (lang: string): void => {
+      void translation.changeLanguage(lang)
+    },
+    [translation]
+  )
 
-  const changeLanguageHandler = (lang: string) => {
-    translation.changeLanguage(lang)
-  }
   useEffect(() => {
-
     changeLanguageHandler('am')
-
-
-  }, [])
-
+  }, [changeLanguageHandler])
 
   return (
     <div>

@@ -1,1 +1,1 @@
-export * from './home/home.componet';
+export * from './home/home.componet'

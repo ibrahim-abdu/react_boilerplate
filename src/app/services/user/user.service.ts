@@ -1,6 +1,6 @@
-import { ServiceResponse } from "../api";
-import { Users } from "../../models";
+import { type ServiceResponse } from '../api'
+import { type Users } from '../../models'
 
-export  interface UserService {
-  getUsers: () => Promise<ServiceResponse<Users>>;
+export interface UserService {
+  getUsers: () => Promise<ServiceResponse<Users>>
 }

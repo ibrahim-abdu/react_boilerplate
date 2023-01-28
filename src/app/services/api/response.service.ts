@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from 'lodash'
 
 /**
  * Every function in service class returns response
@@ -6,21 +6,21 @@ import * as _ from 'lodash';
  * status contains the status of the operation
  */
 export class ServiceResponse<T> {
-  data?: T;
-  error?: string;
+  data?: T
+  error?: string
 
-  constructor(
+  constructor (
     data?: T,
     error?: string) {
-    this.data = data;
-    this.error = error;
+    this.data = data
+    this.error = error
   }
 
-  hasData(): boolean {
-    return !_.isNil(this.data);
+  hasData (): boolean {
+    return !_.isNil(this.data)
   }
 
-  hasError(): boolean {
-    return !_.isEmpty(this.error);
+  hasError (): boolean {
+    return !_.isEmpty(this.error)
   }
 }

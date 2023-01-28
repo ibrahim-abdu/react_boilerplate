@@ -1,19 +1,19 @@
 
-import { APIServiceImpl, ServiceResponse } from '../api';
+import { APIServiceImpl, ServiceResponse } from '../api'
 
-import { Users } from '../../models';
-import { UserService } from './user.service';
+import { Users } from '../../models'
+import { type UserService } from './user.service'
 
 export class UserServiceImpl extends APIServiceImpl implements UserService {
-  static readonly RESOURCE = '/users';
+  static readonly RESOURCE = '/users'
 
-  async getUsers(): Promise<ServiceResponse<Users>> {
+  async getUsers (): Promise<ServiceResponse<Users>> {
     try {
-      const response = await this.get(UserServiceImpl.RESOURCE);
+      const response = await this.get(UserServiceImpl.RESOURCE)
       const users = new Users(response.data)
-      return new ServiceResponse<Users>(users);
+      return new ServiceResponse<Users>(users)
     } catch (e: any) {
-      throw new ServiceResponse<Users>(undefined, APIServiceImpl.parseError(e));
+      return new ServiceResponse<Users>(undefined, APIServiceImpl.parseError(e))
     }
   }
 }
