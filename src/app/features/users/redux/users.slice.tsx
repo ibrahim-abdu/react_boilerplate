@@ -36,7 +36,7 @@ const userSlice = createSlice({
   }
 })
 
-export const selectUser = (state: RootState) => state.user
+export const selectUser = (state: RootState): UserStore => state.user
 export const selectUserData = createSelector(selectUser, (user) => user.data)
 export const selectUserLoading = createSelector(selectUser, (user) => user.state === 'pending')
 

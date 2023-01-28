@@ -1,4 +1,5 @@
 import { type AxiosError, type AxiosErrorSerialized, type AxiosInstance, type AxiosPromise, type AxiosRequestConfig } from 'axios'
+import { isNil } from 'lodash'
 import pickBy from 'lodash/pickBy'
 import queryString from 'query-string'
 
@@ -91,7 +92,7 @@ class HttpClient {
     return await this.request({ ...config, url, method: 'PUT', data })
   }
 
-  patch = async <T extends {} = any>(
+  patch = async <T extends Record<string, unknown> = any>(
     url: string,
     data?: object,
     config?: AxiosRequestConfig
@@ -107,7 +108,7 @@ class HttpClient {
   }
 
   paramsSerializer = (_params: Record<string, unknown>): string => {
-    const params = pickBy(_params, (val) => !!val || val === 0 || val === false)
+    const params = pickBy(_params, (val) => !!isNil(val) || val === 0 || val === false)
     return queryString.stringify(params as any)
   }
 
