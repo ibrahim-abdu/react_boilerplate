@@ -3,7 +3,6 @@ import { APIServiceImpl, ServiceResponse } from '../api';
 
 import { Users } from '../../models';
 import { UserService } from './user.service';
-import { AxiosResponse } from 'axios';
 
 export class UserServiceImpl extends APIServiceImpl implements UserService {
   static readonly RESOURCE = '/users';
