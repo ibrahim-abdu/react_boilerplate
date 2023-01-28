@@ -19,5 +19,8 @@ module.exports = {
     'react'
   ],
   rules: {
+    '@typescript-eslint/strict-boolean-expressions': 'warn',
+    "@typescript-eslint/explicit-function-return-type":"warn",
+
   }
 }
